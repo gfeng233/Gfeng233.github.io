@@ -1,514 +1,1132 @@
-From: <Saved by Blink>
-Snapshot-Content-Location: https://render.lingguang.com/p/lingguang/flashapp-fac20758eeda4332-25/index.html
-Subject: =?utf-8?Q?=E5=B7=A5=E8=B5=84=E8=AE=A1=E7=AE=97=E5=99=A8?=
-Date: Wed, 26 Nov 2025 07:43:53 +0800
-MIME-Version: 1.0
-Content-Type: multipart/related;
-	type="text/html";
-	boundary="----MultipartBoundary--NYrYzxMDoUZyEmY52Y7l1WWwPdiY43cGwwtFab52Es----"
-
-
-------MultipartBoundary--NYrYzxMDoUZyEmY52Y7l1WWwPdiY43cGwwtFab52Es----
-Content-Type: text/html
-Content-ID: <frame-74E94204A9B1B76937875541307397E2@mhtml.blink>
-Content-Transfer-Encoding: binary
-Content-Location: https://render.lingguang.com/p/lingguang/flashapp-fac20758eeda4332-25/index.html
-
-<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" type="text/css" href="cid:css-c93cd17e-0c91-4f1d-9a29-913d9806bffb@mhtml.blink" /><link rel="stylesheet" type="text/css" href="cid:css-a7596518-7e3f-439d-84ef-236ff7c032e7@mhtml.blink" />
-    
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>工资计算器</title>
-    
-    
-    
-    <link href="https://gw.alipayobjects.com/render/p/yuyan/180023180003946312/material-icons.css" rel="stylesheet">
-    
+    <title>工资计算系统</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            margin: 0;
+            padding: 00.5px;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            padding: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        .form-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #2c3e50;
+        }
+        input:focus, select:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .calendar-container {
+            margin: 30px 0;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: #3498db;
+            color: white;
+        }
+        .calendar-nav-button {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 8px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            min-width: 60px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        .calendar-nav-button:hover {
+            background-color: #1c6ea4;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background-color: #bdc3c7;
+        }
+        .calendar-day-header {
+            background-color: #ecf0f1;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .calendar-day {
+            height: 60px;
+            background-color: white;
+            padding: 5px;
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.2s;
+            color: #2c3e50;
+        }
+        .calendar-day:hover {
+            background-color: #f0f8ff;
+            transform: scale(1.05);
+            z-index: 1;
+        }
+        .calendar-day.selected-rest {
+            background-color: #ffcdd2;
+        }
+        .calendar-day.selected-paid {
+            background-color: #c8e6c9;
+        }
+        .calendar-day.working {
+            background-color: #e3f2fd;
+        }
+        .calendar-day.weekend {
+            background-color: #fff3e0;
+        }
+        .calendar-day.other-month {
+            background-color: #f5f5f5;
+            color: #95a5a6;
+        }
+        .calendar-day-number {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .calendar-day-type {
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+            font-size: 10px;
+            padding: 1px 3px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .rest-indicator {
+            background-color: #f44336;
+            color: white;
+        }
+        .paid-indicator {
+            background-color: #4caf50;
+            color: white;
+        }
+        .working-indicator {
+            background-color: #2196f3;
+            color: white;
+        }
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+        }
+        .rest-legend {
+            background-color: #ffcdd2;
+        }
+        .paid-legend {
+            background-color: #c8e6c9;
+        }
+        .weekend-legend {
+            background-color: #fff3e0;
+        }
+        .working-legend {
+            background-color: #e3f2fd;
+        }
+        .collapsible {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            cursor: pointer;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 16px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .collapsible:hover {
+            background-color: #d5dbdb;
+        }
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .active, .collapsible.active {
+            background-color: #ffffff;
+            color: #2c3e50;
+        }
+        .content.show {
+            display: block;
+        }
+        .results {
+            margin-top: 30px;
+            border-top: 2px solid #ecf0f1;
+            padding-top: 20px;
+        }
+        .summary-card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+            color: #2c3e50;
+        }
+        .summary-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+            color: #2c3e50;
+        }
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+        .total-salary {
+            font-size: 28px;
+            font-weight: bold;
+            color: #e74c3c;
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            color: #2c3e50;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #bdc3c7;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+            color: #2c3e50;
+        }
+        .tab.active {
+            background-color: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        td {
+            background-color: white;
+            color: #2c3e50;
+        }
+        .increment-buttons {
+            display: flex;
+            gap: 5px;
+            margin-top: 5px;
+        }
+        .increment-btn {
+            flex: 1;
+            padding: 5px;
+            font-size: 12px;
+            background-color: #95a5a6;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .increment-btn:hover {
+            background-color: #7f8c8d;
+        }
+        @media (max-width: 768px) {
+            .form-section {
+                grid-template-columns: 1fr;
+            }
+            .calendar-grid {
+                grid-template-columns: repeat(7, 1fr);
+            }
+            .calendar-day {
+                height: 50px;
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div id="container" class="container mx-auto p-4 max-w-md">
-        <!-- 头部月份导航 -->
-        <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
-            <div class="flex justify-between items-center">
-                <button id="prevMonth" class="p-2 rounded-full hover:bg-gray-100" data-testid="prev-month">
-                    <span class="material-icons">chevron_left</span>
-                </button>
-                <h2 id="currentMonth" class="text-lg font-semibold">2025年11月</h2>
-                <button id="nextMonth" class="p-2 rounded-full hover:bg-gray-100" data-testid="next-month">
-                    <span class="material-icons">chevron_right</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- 日历视图 -->
-        <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
-            <div class="grid grid-cols-7 gap-1 text-center text-xs font-semibold mb-2">
-                <div>日</div>
-                <div>一</div>
-                <div>二</div>
-                <div>三</div>
-                <div>四</div>
-                <div>五</div>
-                <div>六</div>
-            </div>
-            <div id="calendarGrid" class="grid grid-cols-7 gap-1"><div class="calendar-day border rounded p-2 text-center text-gray-400">26</div><div class="calendar-day border rounded p-2 text-center text-gray-400">27</div><div class="calendar-day border rounded p-2 text-center text-gray-400">28</div><div class="calendar-day border rounded p-2 text-center text-gray-400">29</div><div class="calendar-day border rounded p-2 text-center text-gray-400">30</div><div class="calendar-day border rounded p-2 text-center text-gray-400">31</div><div class="calendar-day border rounded p-2 text-center weekend">1</div><div class="calendar-day border rounded p-2 text-center rest-day">2</div><div class="calendar-day border rounded p-2 text-center">3</div><div class="calendar-day border rounded p-2 text-center">4</div><div class="calendar-day border rounded p-2 text-center">5</div><div class="calendar-day border rounded p-2 text-center">6</div><div class="calendar-day border rounded p-2 text-center">7</div><div class="calendar-day border rounded p-2 text-center weekend">8</div><div class="calendar-day border rounded p-2 text-center weekend">9</div><div class="calendar-day border rounded p-2 text-center">10</div><div class="calendar-day border rounded p-2 text-center">11</div><div class="calendar-day border rounded p-2 text-center">12</div><div class="calendar-day border rounded p-2 text-center">13</div><div class="calendar-day border rounded p-2 text-center">14</div><div class="calendar-day border rounded p-2 text-center weekend">15</div><div class="calendar-day border rounded p-2 text-center rest-day">16</div><div class="calendar-day border rounded p-2 text-center">17</div><div class="calendar-day border rounded p-2 text-center">18</div><div class="calendar-day border rounded p-2 text-center">19</div><div class="calendar-day border rounded p-2 text-center">20</div><div class="calendar-day border rounded p-2 text-center">21</div><div class="calendar-day border rounded p-2 text-center weekend">22</div><div class="calendar-day border rounded p-2 text-center weekend">23</div><div class="calendar-day border rounded p-2 text-center">24</div><div class="calendar-day border rounded p-2 text-center">25</div><div class="calendar-day border rounded p-2 text-center">26</div><div class="calendar-day border rounded p-2 text-center">27</div><div class="calendar-day border rounded p-2 text-center">28</div><div class="calendar-day border rounded p-2 text-center weekend">29</div><div class="calendar-day border rounded p-2 text-center rest-day">30</div><div class="calendar-day border rounded p-2 text-center text-gray-400">1</div><div class="calendar-day border rounded p-2 text-center text-gray-400">2</div><div class="calendar-day border rounded p-2 text-center text-gray-400">3</div><div class="calendar-day border rounded p-2 text-center text-gray-400">4</div><div class="calendar-day border rounded p-2 text-center text-gray-400">5</div><div class="calendar-day border rounded p-2 text-center text-gray-400">6</div></div>
-        </div>
-
-        <!-- 参数设置按钮 -->
-        <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
-            <button id="settingsToggle" class="settings-button w-full flex justify-between items-center p-3 rounded-lg" data-testid="settings-toggle">
-                <div class="flex items-center">
-                    <span class="material-icons mr-2">settings</span>
-                    <span class="text-base font-semibold">工资参数设置</span>
-                </div>
-                <span id="settingsIcon" class="material-icons transition-transform duration-200 settings-icon-rotate">expand_more</span>
-            </button>
-            
-            <!-- 参数设置二级菜单 -->
-            <div id="settingsMenu" class="settings-menu show">
-                <div class="pt-3 space-y-3">
-                    <div class="slider-container">
-                        <label class="text-sm text-gray-600">时薪: <span id="hourlyRateValue">10.4</span>元</label>
-                        <input type="number" id="hourlyRate" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" min="1" max="200" step="0.1" value="10.4" data-testid="hourly-rate-input">
-                    </div>
-                    
-                    <div class="slider-container">
-                        <label class="text-sm text-gray-600">绩效费率: <span id="performanceRateValue">3.2</span>元/小时</label>
-                        <input type="number" id="performanceRate" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" min="0" max="50" step="0.1" value="3.2" data-testid="performance-rate-input">
-                    </div>
-                    
-                    <div class="slider-container">
-                        <label class="text-sm text-gray-600">效率系数: <span id="efficiencyFactorValue">0.504</span></label>
-                        <div class="flex space-x-2">
-                            <input type="range" id="efficiencyFactorSlider" class="slider flex-1" min="0.1" max="1" step="0.001" value="0.1" data-testid="efficiency-factor-slider">
-                            <input type="number" id="efficiencyFactor" class="w-24 px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" min="0.1" max="1" step="0.001" value="0.1" data-testid="efficiency-factor-input">
-                        </div>
-                    </div>
-                    
-                    <div class="slider-container">
-                        <label class="text-sm text-gray-600">工作日夜班费: <span id="nightShiftWeekdayValue">30</span>元</label>
-                        <input type="number" id="nightShiftWeekday" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" min="0" max="100" step="1" value="30" data-testid="night-shift-weekday-input">
-                    </div>
-                    
-                    <div class="slider-container">
-                        <label class="text-sm text-gray-600">周末夜班费: <span id="nightShiftWeekendValue">10</span>元</label>
-                        <input type="number" id="nightShiftWeekend" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" min="0" max="150" step="1" value="10" data-testid="night-shift-weekend-input">
-                    </div>
-                    
-                    </div>
-            </div>
-        </div>
-
-        <!-- 请假功能按钮 -->
-        <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
-            <button id="leaveToggle" class="settings-button w-full flex justify-between items-center p-3 rounded-lg" data-testid="leave-toggle">
-                <div class="flex items-center">
-                    <span class="material-icons mr-2">event_busy</span>
-                    <span class="text-base font-semibold">请假时间设置</span>
-                </div>
-                <span id="leaveIcon" class="material-icons transition-transform duration-200">expand_more</span>
-            </button>
-            
-            <!-- 请假设置二级菜单 -->
-            <div id="leaveMenu" class="settings-menu">
-                <div class="pt-3 space-y-3">
-                    <div class="slider-container">
-                        <label class="text-sm text-gray-600">单倍请假时间: <span id="singleLeaveValue">0</span>小时</label>
-                        <input type="range" id="singleLeave" class="slider" min="0" max="30" step="0.5" value="0" data-testid="single-leave-slider">
-                    </div>
-                    
-                    <div class="slider-container">
-                        <label class="text-sm text-gray-600">1.5倍请假时间: <span id="onePointFiveLeaveValue">0</span>小时</label>
-                        <input type="range" id="onePointFiveLeave" class="slider" min="0" max="30" step="0.5" value="0" data-testid="onepointfive-leave-slider">
-                    </div>
-                    
-                    <div class="slider-container">
-                        <label class="text-sm text-gray-600">双倍请假时间: <span id="doubleLeaveValue">0</span>小时</label>
-                        <input type="range" id="doubleLeave" class="slider" min="0" max="30" step="0.5" value="0" data-testid="double-leave-slider">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 工时统计图表 -->
-        <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
-            <h3 class="text-base font-semibold mb-3">工时统计</h3>
-            <div class="work-hours-chart">
-                <div class="chart-bar" id="singleBar" style="height: 100px;">
-                    <div class="chart-value" id="singleValue">160.0h</div>
-                    <div class="chart-label">单倍工时</div>
-                </div>
-                <div class="chart-bar" id="onePointFiveBar" style="height: 25px; background-color: rgb(255, 152, 0);">
-                    <div class="chart-value" id="onePointFiveValue">40.0h</div>
-                    <div class="chart-label">1.5倍工时</div>
-                </div>
-                <div class="chart-bar" id="doubleBar" style="height: 41.25px; background-color: rgb(244, 67, 54);">
-                    <div class="chart-value" id="doubleValue">66.0h</div>
-                    <div class="chart-label">双倍工时</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 工资明细 -->
-        <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
-            <h3 class="text-base font-semibold mb-3">工资明细</h3>
-            <div id="salaryDetails">
-                <div class="salary-item">
-                    <span id="totalHoursLabel">2025年11月 总工时</span>
-                    <span id="totalHours">266.0小时</span>
-                </div>
-                <div class="salary-item">
-                    <span>基本工资</span>
-                    <span id="baseSalary">1664.00元</span>
-                </div>
-                <div class="salary-item">
-                    <span>1.5倍加班工资</span>
-                    <span id="overtime1_5Salary">624.00元</span>
-                </div>
-                <div class="salary-item">
-                    <span>双倍加班工资</span>
-                    <span id="overtime2Salary">1372.80元</span>
-                </div>
-                <div class="salary-item">
-                    <span>绩效奖金</span>
-                    <span id="performanceBonus">851.20元</span>
-                </div>
-                <div class="salary-item">
-                    <span>效率奖金</span>
-                    <span id="efficiencyBonus">3351.60元</span>
-                </div>
-                <div class="salary-item">
-                    <span>夜班费</span>
-                    <span id="nightShiftFee">770.00元</span>
-                </div>
-                <div class="salary-item">
-                    <span>有薪假期工资</span>
-                    <span id="paidLeaveSalary">0.00元</span>
-                </div>
-                <div class="salary-total">
-                    <div class="flex justify-between">
-                        <span>总工资</span>
-                        <span id="totalSalary">8633.60元</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+    <div class="container">
+        <h1>工资计算系统</h1>
         
-    </div>
-
-    <!-- 效率系数输入对话框 -->
-    <div id="efficiencyDialog" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" style="display: none;">
-        <div class="bg-white rounded-lg p-6 max-w-sm w-full mx-4">
-            <h3 class="text-lg font-semibold mb-4">设置效率系数</h3>
-            <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700 mb-2">效率系数 (0.100 - 1.000)</label>
-                <input type="number" id="efficiencyDialogInput" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" min="0.1" max="1" step="0.001" value="0.1" data-testid="efficiency-dialog-input">
+        <div class="form-section">
+            <div class="form-group">
+                <label for="year">年份:</label>
+                <select id="year" onchange="updateCalendar()"></select>
             </div>
-            <div class="flex justify-end space-x-3">
-                <button id="efficiencyDialogCancel" class="px-4 py-2 text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200" data-testid="efficiency-dialog-cancel">取消</button>
-                <button id="efficiencyDialogConfirm" class="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600" data-testid="efficiency-dialog-confirm">确定</button>
+            
+            <div class="form-group">
+                <label for="month">月份:</label>
+                <select id="month" onchange="updateCalendar()"></select>
+            </div>
+        </div>
+        
+        <button class="collapsible">工资参数设置</button>
+        <div class="content">
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="hourlyRate">时薪 (元/小时):</label>
+                    <input type="number" id="hourlyRate" step="0.01" value="10.4" oninput="debouncedCalculate()">
+                </div>
+                
+                <div class="form-group">
+                    <label for="performanceRate">绩效费率 (元/小时):</label>
+                    <input type="number" id="performanceRate" step="0.01" value="3.2" oninput="debouncedCalculate()">
+                </div>
+                
+                <div class="form-group">
+                    <label for="efficiencyFactor">效率系数:</label>
+                    <input type="number" id="efficiencyFactor" step="0.001" value="0.504" oninput="debouncedCalculate()">
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="weekdayNightFee">工作日夜班费 (元/天):</label>
+                    <input type="number" id="weekdayNightFee" value="30" oninput="debouncedCalculate()">
+                </div>
+                
+                <div class="form-group">
+                    <label for="weekendNightFee">周日夜班费 (元/天):</label>
+                    <input type="number" id="weekendNightFee" value="10" oninput="debouncedCalculate()">
+                </div>
+                
+                <div class="form-group">
+                    <label for="paidLeaveRate">有薪假期费率 (元/天):</label>
+                    <input type="number" id="paidLeaveRate" value="83.2" oninput="debouncedCalculate()">
+                </div>
+            </div>
+        </div>
+        
+        <button class="collapsible">请假时间设置</button>
+        <div class="content">
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="singleTimeLeave">单倍时间请假 (小时):</label>
+                    <input type="number" id="singleTimeLeave" value="0" step="0.5" oninput="debouncedCalculate()">
+                    <div class="increment-buttons">
+                        <button class="increment-btn" onclick="adjustValue('singleTimeLeave', -0.5)">-0.5</button>
+                        <button class="increment-btn" onclick="adjustValue('singleTimeLeave', 0.5)">+0.5</button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="overtime15Leave">1.5倍时间请假 (小时):</label>
+                    <input type="number" id="overtime15Leave" value="0" step="0.5" oninput="debouncedCalculate()">
+                    <div class="increment-buttons">
+                        <button class="increment-btn" onclick="adjustValue('overtime15Leave', -0.5)">-0.5</button>
+                        <button class="increment-btn" onclick="adjustValue('overtime15Leave', 0.5)">+0.5</button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="doubleTimeLeave">双倍时间请假 (小时):</label>
+                    <input type="number" id="doubleTimeLeave" value="0" step="0.5" oninput="debouncedCalculate()">
+                    <div class="increment-buttons">
+                        <button class="increment-btn" onclick="adjustValue('doubleTimeLeave', -0.5)">-0.5</button>
+                        <button class="increment-btn" onclick="adjustValue('doubleTimeLeave', 0.5)">+0.5</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="collapsible">批量计算多月工资</button>
+        <div class="content">
+            <div class="form-section">
+                <div class="form-group">
+                    <label>起始年月:</label>
+                    <div style="display: flex; gap: 10px;">
+                        <select id="startYear" style="flex:1;"></select>
+                        <select id="startMonth" style="flex:1;"></select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>结束年月:</label>
+                    <div style="display: flex; gap: 10px;">
+                        <select id="endYear" style="flex:1;"></select>
+                        <select id="endMonth" style="flex:1;"></select>
+                    </div>
+                </div>
+            </div>
+            <button onclick="calculateMultipleMonths()" style="background-color:#2ecc71;">批量计算工资</button>
+            
+            <div style="margin-top:15px; display:flex; gap:10px;">
+                <button onclick="exportWorkStatus()" style="flex:1; background-color:#9b59b6; color:white;">导出工作状态</button>
+                <button onclick="document.getElementById('importFile').click()" style="flex:1; background-color:#e67e22; color:white;">导入工作状态</button>
+                <input type="file" id="importFile" accept=".json" style="display:none;" onchange="importWorkStatus(event)">
+            </div>
+        </div>
+
+        <div id="batchResults" class="results" style="display:none; margin-top:30px;">
+            <h2 style="text-align:center; color:#2c3e50;">多月工资汇总</h2>
+            <table id="batchTable">
+                <thead>
+                    <tr>
+                        <th>年月</th>
+                        <th>基本工资</th>
+                        <th>加班工资</th>
+                        <th>绩效奖金</th>
+                        <th>效率奖金</th>
+                        <th>夜班费</th>
+                        <th>有薪假期</th>
+                        <th>总工资</th>
+                    </tr>
+                </thead>
+                <tbody id="batchTableBody"></tbody>
+            </table>
+            <div style="text-align:center; margin-top:15px;">
+                <button onclick="exportBatchToCSV()">导出为 CSV</button>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color working-legend"></div>
+                <span>工作日</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color rest-legend"></div>
+                <span>休息日</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color paid-legend"></div>
+                <span>有薪假期</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color weekend-legend"></div>
+                <span>周末</span>
+            </div>
+        </div>
+        
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <div style="flex: 1; text-align: left;">
+                    <button class="calendar-nav-button" onclick="changeMonth(-1)">
+                        <span>‹</span>
+                        <span style="margin-left: 3px; font-size: 12px;">上月</span>
+                    </button>
+                </div>
+                <h2 id="currentMonthYear" style="margin: 0; font-size: 1.4em; text-align: center; flex: 2;">2023年10月</h2>
+                <div style="flex: 1; text-align: right;">
+                    <button class="calendar-nav-button" onclick="changeMonth(1)">
+                        <span style="font-size: 12px;">下月</span>
+                        <span style="margin-left: 3px;">›</span>
+                    </button>
+                </div>
+            </div>
+            <div class="calendar-grid" id="calendarGrid"></div>
+        </div>
+        
+        <div class="results" id="results" style="display:block;">
+            <div class="tabs">
+                <div class="tab active" onclick="showTab('summary')">摘要</div>
+                <div class="tab" onclick="showTab('details')">详细信息</div>
+                <div class="tab" onclick="showTab('breakdown')">工资构成</div>
+            </div>
+            
+            <div id="summary" class="tab-content active">
+                <div class="summary-card">
+                    <div class="summary-title">工资摘要</div>
+                    <div class="summary-item"><span>基本工资:</span> <span id="basicSalary">0.00元</span></div>
+                    <div class="summary-item"><span>加班工资:</span> <span id="overtimeSalary">0.00元</span></div>
+                    <div class="summary-item"><span>绩效奖金:</span> <span id="performanceBonus">0.00元</span></div>
+                    <div class="summary-item"><span>效率奖金:</span> <span id="efficiencyBonus">0.00元</span></div>
+                    <div class="summary-item"><span>夜班费:</span> <span id="nightShiftFee">0.00元</span></div>
+                    <div class="summary-item"><span>有薪假期工资:</span> <span id="paidLeaveSalary">0.00元</span></div>
+                </div>
+                
+                <div class="total-salary">
+                    总工资: <span id="totalSalary">0.00</span> 元
+                </div>
+            </div>
+            
+            <div id="details" class="tab-content">
+                <div class="summary-card">
+                    <div class="summary-title">详细信息</div>
+                    <div class="summary-item"><span>年月</span> <span id="yearMonth"></span></div>
+                    <div class="summary-item"><span>应上班天数</span> <span id="shouldWorkDays"></span></div>
+                    <div class="summary-item"><span>应上班时长</span> <span id="shouldWorkHours"></span></div>
+                    <div class="summary-item"><span>实际总工时</span> <span id="actualTotalHours"></span></div>
+                    <div class="summary-item"><span>实际单倍工时</span> <span id="actualSingleHours"></span></div>
+                    <div class="summary-item"><span>实际1.5倍加班</span> <span id="actualOvertime15"></span></div>
+                    <div class="summary-item"><span>实际周日工时</span> <span id="actualSundayHours"></span></div>
+                    <div class="summary-item"><span>实际周六工时</span> <span id="actualSaturdayHours"></span></div>
+                    <div class="summary-item"><span>休息日数量</span> <span id="restDaysCount"></span></div>
+                    <div class="summary-item"><span>有薪假期数量</span> <span id="paidLeaveCount"></span></div>
+                    <div class="summary-item"><span>工作日休息天数</span> <span id="weekdayRestDays"></span></div>
+                    <div class="summary-item"><span>周末上班天数</span> <span id="weekendWorkDays"></span></div>
+                    <div class="summary-item"><span>情况类型</span> <span id="caseType"></span></div>
+                </div>
+            </div>
+            
+            <div id="breakdown" class="tab-content">
+                <div class="summary-card">
+                    <div class="summary-title">工资构成</div>
+                    <div class="summary-item">
+                        <span>单倍工资 (1.0x)</span>
+                        <span id="singlePayAmount">0.00元</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>1.5倍加班 (1.5x)</span>
+                        <span id="overtime15PayAmount">0.00元</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>双倍加班 (2.0x)</span>
+                        <span id="doublePayAmount">0.00元</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>合计</span>
+                        <span id="breakdownTotal">0.00元</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    
+    <script>
+        // 存储日历数据（按年月索引）
+        var calendarData = {};
+        var currentYear = new Date().getFullYear();
+        var currentMonth = new Date().getMonth() + 1;
+        var debounceTimer = null;
 
-</body></html>
-------MultipartBoundary--NYrYzxMDoUZyEmY52Y7l1WWwPdiY43cGwwtFab52Es----
-Content-Type: text/css
-Content-Transfer-Encoding: binary
-Content-Location: https://gw.alipayobjects.com/render/p/yuyan/180023180003946312/material-icons.css
+        // 初始化下拉框选项
+        function initializeSelectOptions() {
+            var currentYearGlobal = new Date().getFullYear();
+            var yearSelectIds = ['year', 'startYear', 'endYear'];
+            var monthSelectIds = ['month', 'startMonth', 'endMonth'];
+            var monthNames = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+            
+            // 初始化年份选项
+            yearSelectIds.forEach(function(id) {
+                var select = document.getElementById(id);
+                if (select) {
+                    select.innerHTML = '';
+                    for (var i = 2020; i <= 2050; i++) {
+                        var option = document.createElement('option');
+                        option.value = i;
+                        option.text = i;
+                        if (i === currentYearGlobal) option.selected = true;
+                        select.appendChild(option);
+                    }
+                }
+            });
+            
+            // 初始化月份选项
+            monthSelectIds.forEach(function(id) {
+                var select = document.getElementById(id);
+                if (select) {
+                    select.innerHTML = '';
+                    for (var i = 0; i < monthNames.length; i++) {
+                        var option = document.createElement('option');
+                        option.value = i + 1;
+                        option.text = monthNames[i];
+                        if ((id === 'month' || id === 'startMonth') && (i + 1) === currentMonth) option.selected = true;
+                        if (id === 'endMonth' && (i + 1) === 12) option.selected = true;
+                        select.appendChild(option);
+                    }
+                }
+            });
+        }
 
-@charset "utf-8";
+        // 初始化日历
+        function initCalendar() {
+            initializeSelectOptions();
+            updateCalendar();
+            calculateSalary();
+        }
 
-@font-face { font-family: "Material Icons"; font-style: normal; font-weight: 400; font-display: block; src: url("./material-icons.woff2") format("woff2"), url("./material-icons.woff") format("woff"); }
+        // 获取当前月的日历数据键
+        function getCurrentMonthKey() {
+            return currentYear + '-' + String(currentMonth).padStart(2, '0');
+        }
 
-.material-icons { font-family: "Material Icons"; font-weight: normal; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; overflow-wrap: normal; direction: ltr; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; font-feature-settings: "liga"; }
+        // 获取或初始化日历数据
+        function getOrCreateCalendarData(year, month) {
+            var key = year + '-' + String(month).padStart(2, '0');
+            if (!calendarData[key]) {
+                calendarData[key] = {};
+            }
+            return calendarData[key];
+        }
 
-@font-face { font-family: "Material Icons Outlined"; font-style: normal; font-weight: 400; font-display: block; src: url("./material-icons-outlined.woff2") format("woff2"), url("./material-icons-outlined.woff") format("woff"); }
+        // 更新日历
+        function updateCalendar() {
+            currentYear = parseInt(document.getElementById('year').value);
+            currentMonth = parseInt(document.getElementById('month').value);
+            
+            document.getElementById('currentMonthYear').textContent = currentYear + '年' + currentMonth + '月';
+            
+            var calendarGrid = document.getElementById('calendarGrid');
+            calendarGrid.innerHTML = '';
+            
+            var weekdays = ['日', '一', '二', '三', '四', '五', '六'];
+            weekdays.forEach(function(day) {
+                var headerCell = document.createElement('div');
+                headerCell.className = 'calendar-day-header';
+                headerCell.textContent = day;
+                calendarGrid.appendChild(headerCell);
+            });
+            
+            var firstDay = new Date(currentYear, currentMonth - 1, 1);
+            var lastDay = new Date(currentYear, currentMonth, 0);
+            var firstDayOfWeek = firstDay.getDay();
+            var daysInMonth = lastDay.getDate();
+            
+            var prevMonthLastDay = new Date(currentYear, currentMonth - 1, 0).getDate();
+            for (var i = firstDayOfWeek - 1; i >= 0; i--) {
+                var day = prevMonthLastDay - i;
+                addDayToCalendar(calendarGrid, currentYear, currentMonth - 1, day, true);
+            }
+            
+            for (var i = 1; i <= daysInMonth; i++) {
+                addDayToCalendar(calendarGrid, currentYear, currentMonth, i, false);
+            }
+            
+            var totalCells = 42;
+            var remainingCells = totalCells - (firstDayOfWeek + daysInMonth);
+            for (var i = 1; i <= remainingCells; i++) {
+                addDayToCalendar(calendarGrid, currentYear, currentMonth + 1, i, true);
+            }
+        }
 
-.material-icons-outlined { font-family: "Material Icons Outlined"; font-weight: normal; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; overflow-wrap: normal; direction: ltr; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; font-feature-settings: "liga"; }
+        // 添加一天到日历
+        function addDayToCalendar(grid, year, month, day, isOtherMonth) {
+            var dateStr = year + '-' + String(month).padStart(2, '0') + '-' + String(day).padStart(2, '0');
+            var date = new Date(year, month - 1, day);
+            var dayOfWeek = date.getDay();
+            
+            var cell = document.createElement('div');
+            cell.className = 'calendar-day';
+            if (isOtherMonth) cell.classList.add('other-month');
+            if (dayOfWeek === 0 || dayOfWeek === 6) cell.classList.add('weekend');
+            
+            var monthKey = year + '-' + String(month).padStart(2, '0');
+            var monthData = calendarData[monthKey] || {};
+            
+            if (monthData[dateStr] === 'rest') {
+                cell.classList.add('selected-rest');
+            } else if (monthData[dateStr] === 'paid') {
+                cell.classList.add('selected-paid');
+            } else {
+                cell.classList.add('working');
+            }
+            
+            var dayNumber = document.createElement('div');
+            dayNumber.className = 'calendar-day-number';
+            dayNumber.textContent = day;
+            cell.appendChild(dayNumber);
+            
+            if (monthData[dateStr]) {
+                var typeIndicator = document.createElement('div');
+                typeIndicator.className = 'calendar-day-type ' + 
+                    (monthData[dateStr] === 'rest' ? 'rest-indicator' : 
+                     monthData[dateStr] === 'paid' ? 'paid-indicator' : 'working-indicator');
+                typeIndicator.textContent = monthData[dateStr] === 'rest' ? '休' : 
+                                           monthData[dateStr] === 'paid' ? '薪' : '工';
+                cell.appendChild(typeIndicator);
+            }
+            
+            cell.addEventListener('click', function() {
+                toggleDaySelection(dateStr, cell, year, month);
+                debouncedCalculate();
+            });
+            
+            grid.appendChild(cell);
+        }
 
-@font-face { font-family: "Material Icons Round"; font-style: normal; font-weight: 400; font-display: block; src: url("./material-icons-round.woff2") format("woff2"), url("./material-icons-round.woff") format("woff"); }
+        // 切换日期选择状态
+        function toggleDaySelection(dateStr, cell, year, month) {
+            var monthKey = year + '-' + String(month).padStart(2, '0');
+            var monthData = getOrCreateCalendarData(year, month);
+            
+            if (monthData[dateStr] === 'rest') {
+                monthData[dateStr] = 'paid';
+                cell.classList.remove('selected-rest');
+                cell.classList.add('selected-paid');
+                updateDayIndicator(cell, 'paid');
+            } else if (monthData[dateStr] === 'paid') {
+                delete monthData[dateStr];
+                cell.classList.remove('selected-paid');
+                cell.classList.add('working');
+                removeDayIndicator(cell);
+            } else {
+                monthData[dateStr] = 'rest';
+                cell.classList.remove('working');
+                cell.classList.add('selected-rest');
+                updateDayIndicator(cell, 'rest');
+            }
+        }
 
-.material-icons-round { font-family: "Material Icons Round"; font-weight: normal; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; overflow-wrap: normal; direction: ltr; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; font-feature-settings: "liga"; }
+        // 更新日期指示器
+        function updateDayIndicator(cell, type) {
+            var indicators = cell.getElementsByClassName('calendar-day-type');
+            if (indicators.length > 0) {
+                indicators[0].className = 'calendar-day-type ' + (type === 'rest' ? 'rest-indicator' : 'paid-indicator');
+                indicators[0].textContent = type === 'rest' ? '休' : '薪';
+            } else {
+                var typeIndicator = document.createElement('div');
+                typeIndicator.className = 'calendar-day-type ' + (type === 'rest' ? 'rest-indicator' : 'paid-indicator');
+                typeIndicator.textContent = type === 'rest' ? '休' : '薪';
+                cell.appendChild(typeIndicator);
+            }
+        }
 
-@font-face { font-family: "Material Icons Sharp"; font-style: normal; font-weight: 400; font-display: block; src: url("./material-icons-sharp.woff2") format("woff2"), url("./material-icons-sharp.woff") format("woff"); }
+        // 移除日期指示器
+        function removeDayIndicator(cell) {
+            var indicators = cell.getElementsByClassName('calendar-day-type');
+            if (indicators.length > 0) cell.removeChild(indicators[0]);
+        }
 
-.material-icons-sharp { font-family: "Material Icons Sharp"; font-weight: normal; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; overflow-wrap: normal; direction: ltr; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; font-feature-settings: "liga"; }
+        // 切换月份
+        function changeMonth(delta) {
+            currentMonth += delta;
+            if (currentMonth > 12) {
+                currentMonth = 1;
+                currentYear++;
+            } else if (currentMonth < 1) {
+                currentMonth = 12;
+                currentYear--;
+            }
+            
+            if (currentYear < 1950) currentYear = 1950;
+            if (currentYear > 2050) currentYear = 2050;
+            
+            document.getElementById('year').value = currentYear;
+            document.getElementById('month').value = currentMonth;
+            updateCalendar();
+            calculateSalary();
+        }
 
-@font-face { font-family: "Material Icons Two Tone"; font-style: normal; font-weight: 400; font-display: block; src: url("./material-icons-two-tone.woff2") format("woff2"), url("./material-icons-two-tone.woff") format("woff"); }
+        function adjustValue(inputId, increment) {
+            var input = document.getElementById(inputId);
+            var currentValue = parseFloat(input.value) || 0;
+            input.value = Math.max(0, currentValue + increment).toFixed(1);
+            calculateSalary();
+        }
 
-.material-icons-two-tone { font-family: "Material Icons Two Tone"; font-weight: normal; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; overflow-wrap: normal; direction: ltr; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; font-feature-settings: "liga"; }
-------MultipartBoundary--NYrYzxMDoUZyEmY52Y7l1WWwPdiY43cGwwtFab52Es----
-Content-Type: text/css
-Content-Transfer-Encoding: binary
-Content-Location: cid:css-a7596518-7e3f-439d-84ef-236ff7c032e7@mhtml.blink
+        function debouncedCalculate() {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(calculateSalary, 300);
+        }
 
-@charset "utf-8";
+        // 核心计算函数
+        function computeSalaryForMonth(year, month, calendarDataForMonth) {
+            var hourlyRate = parseFloat(document.getElementById('hourlyRate').value) || 0;
+            var performanceRate = parseFloat(document.getElementById('performanceRate').value) || 0;
+            var efficiencyFactor = parseFloat(document.getElementById('efficiencyFactor').value) || 0;
+            var weekdayNightFee = parseFloat(document.getElementById('weekdayNightFee').value) || 0;
+            var weekendNightFee = parseFloat(document.getElementById('weekendNightFee').value) || 0;
+            var paidLeaveRate = parseFloat(document.getElementById('paidLeaveRate').value) || 0;
+            var singleTimeLeave = parseFloat(document.getElementById('singleTimeLeave').value) || 0;
+            var overtime15Leave = parseFloat(document.getElementById('overtime15Leave').value) || 0;
+            var doubleTimeLeave = parseFloat(document.getElementById('doubleTimeLeave').value) || 0;
 
-@layer properties;
+            var startDate = new Date(year, month - 1, 1);
+            var endDate = new Date(year, month, 0);
 
-@layer theme, base, components, utilities;
+            // 计算每月各类型日期数量
+            var allWeekdays = 0, allSaturdays = 0, allSundays = 0;
+            var paidLeaveDays = 0, restDays = 0;
+            var weekdayPaidLeaves = 0, saturdayPaidLeaves = 0, sundayPaidLeaves = 0;
 
-@layer theme {
-  :root, :host { --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-    'Noto Color Emoji'; --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-    monospace; --color-blue-500: oklch(62.3% 0.214 259.815); --color-blue-600: oklch(54.6% 0.245 262.881); --color-gray-100: oklch(96.7% 0.003 264.542); --color-gray-200: oklch(92.8% 0.006 264.531); --color-gray-300: oklch(87.2% 0.01 258.338); --color-gray-400: oklch(70.7% 0.022 261.325); --color-gray-600: oklch(44.6% 0.03 256.802); --color-gray-700: oklch(37.3% 0.034 259.733); --color-black: #000; --color-white: #fff; --spacing: 0.25rem; --container-sm: 24rem; --container-md: 28rem; --text-xs: 0.75rem; --text-xs--line-height: calc(1 / 0.75); --text-sm: 0.875rem; --text-sm--line-height: calc(1.25 / 0.875); --text-base: 1rem; --text-base--line-height: calc(1.5 / 1); --text-lg: 1.125rem; --text-lg--line-height: calc(1.75 / 1.125); --font-weight-medium: 500; --font-weight-semibold: 600; --radius-md: 0.375rem; --radius-lg: 0.5rem; --default-transition-duration: 150ms; --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); --default-font-family: var(--font-sans); --default-mono-font-family: var(--font-mono); }
-}
+            for (var d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+                var dayOfWeek = d.getDay();
+                var dateStr = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+                var dayType = calendarDataForMonth[dateStr];
 
-@layer base {
-  *, ::after, ::before, ::backdrop, ::file-selector-button { box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid; }
-  html, :host { line-height: 1.5; text-size-adjust: 100%; tab-size: 4; font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'); font-feature-settings: var(--default-font-feature-settings, normal); font-variation-settings: var(--default-font-variation-settings, normal); -webkit-tap-highlight-color: transparent; }
-  hr { height: 0px; color: inherit; border-top-width: 1px; }
-  abbr:where([title]) { text-decoration: underline dotted; }
-  h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; }
-  a { color: inherit; text-decoration: inherit; }
-  b, strong { font-weight: bolder; }
-  code, kbd, samp, pre { font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace); font-feature-settings: var(--default-mono-font-feature-settings, normal); font-variation-settings: var(--default-mono-font-variation-settings, normal); font-size: 1em; }
-  small { font-size: 80%; }
-  sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
-  sub { bottom: -0.25em; }
-  sup { top: -0.5em; }
-  table { text-indent: 0px; border-color: inherit; border-collapse: collapse; }
-  progress { vertical-align: baseline; }
-  summary { display: list-item; }
-  ol, ul, menu { list-style: none; }
-  img, svg, video, canvas, audio, iframe, embed, object { display: block; vertical-align: middle; }
-  img, video { max-width: 100%; height: auto; }
-  button, input, select, optgroup, textarea, ::file-selector-button { font: inherit; letter-spacing: inherit; color: inherit; border-radius: 0px; background-color: transparent; opacity: 1; }
-  :where(select:is([multiple], [size])) optgroup { font-weight: bolder; }
-  :where(select:is([multiple], [size])) optgroup option { padding-inline-start: 20px; }
-  ::file-selector-button { margin-inline-end: 4px; }
-  ::placeholder { opacity: 1; }
-  @supports (not (-webkit-appearance: -apple-pay-button)) or (contain-intrinsic-size: 1px) {
-  ::placeholder {
-  color: currentcolor;
-  @supports (color: color-mix(in lab, red, red)) {
-  color: color-mix(in oklab, currentcolor, transparent);
-}
-}
-}
-  textarea { resize: vertical; }
-  ::-webkit-search-decoration { appearance: none; }
-  ::-webkit-date-and-time-value { min-height: 1lh; text-align: inherit; }
-  ::-webkit-datetime-edit { display: inline-flex; }
-  ::-webkit-datetime-edit-fields-wrapper { padding: 0px; }
-  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field { padding-block: 0px; }
-  ::-webkit-calendar-picker-indicator { line-height: 1; }
-  button, input:where([type="button"], [type="reset"], [type="submit"]), ::file-selector-button { appearance: button; }
-  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button { height: auto; }
-  [hidden]:where(:not([hidden="until-found"])) { display: none !important; }
-}
+                if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+                    allWeekdays++;
+                    if (dayType === 'paid') weekdayPaidLeaves++;
+                }
+                else if (dayOfWeek === 6) {
+                    allSaturdays++;
+                    if (dayType === 'paid') saturdayPaidLeaves++;
+                }
+                else if (dayOfWeek === 0) {
+                    allSundays++;
+                    if (dayType === 'paid') sundayPaidLeaves++;
+                }
 
-@layer utilities {
-  .fixed { position: fixed; }
-  .inset-0 { inset: calc(var(--spacing) * 0); }
-  .z-50 { z-index: 50; }
-  .container {
-  width: 100%;
-  @media (width >= 40rem) {
-  max-width: 40rem;
-}
-  @media (width >= 48rem) {
-  max-width: 48rem;
-}
-  @media (width >= 64rem) {
-  max-width: 64rem;
-}
-  @media (width >= 80rem) {
-  max-width: 80rem;
-}
-  @media (width >= 96rem) {
-  max-width: 96rem;
-}
-}
-  .mx-4 { margin-inline: calc(var(--spacing) * 4); }
-  .mx-auto { margin-inline: auto; }
-  .mr-2 { margin-right: calc(var(--spacing) * 2); }
-  .mb-2 { margin-bottom: calc(var(--spacing) * 2); }
-  .mb-3 { margin-bottom: calc(var(--spacing) * 3); }
-  .mb-4 { margin-bottom: calc(var(--spacing) * 4); }
-  .block { display: block; }
-  .flex { display: flex; }
-  .grid { display: grid; }
-  .w-24 { width: calc(var(--spacing) * 24); }
-  .w-full { width: 100%; }
-  .max-w-md { max-width: var(--container-md); }
-  .max-w-sm { max-width: var(--container-sm); }
-  .flex-1 { flex: 1 1 0%; }
-  .grid-cols-7 { grid-template-columns: repeat(7, minmax(0px, 1fr)); }
-  .items-center { align-items: center; }
-  .justify-between { justify-content: space-between; }
-  .justify-center { justify-content: center; }
-  .justify-end { justify-content: flex-end; }
-  .gap-1 { gap: calc(var(--spacing) * 1); }
-  .space-y-3 {
-  :where(& > :not(:last-child)) { --tw-space-y-reverse: 0; margin-block-start: calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse)); margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse))); }
-}
-  .space-x-2 {
-  :where(& > :not(:last-child)) { --tw-space-x-reverse: 0; margin-inline-start: calc(calc(var(--spacing) * 2) * var(--tw-space-x-reverse)); margin-inline-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-x-reverse))); }
-}
-  .space-x-3 {
-  :where(& > :not(:last-child)) { --tw-space-x-reverse: 0; margin-inline-start: calc(calc(var(--spacing) * 3) * var(--tw-space-x-reverse)); margin-inline-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-x-reverse))); }
-}
-  .rounded { border-radius: 0.25rem; }
-  .rounded-full { border-radius: calc(infinity * 1px); }
-  .rounded-lg { border-radius: var(--radius-lg); }
-  .rounded-md { border-radius: var(--radius-md); }
-  .border { border-style: var(--tw-border-style); border-width: 1px; }
-  .border-gray-300 { border-color: var(--color-gray-300); }
-  .bg-black { background-color: var(--color-black); }
-  .bg-blue-500 { background-color: var(--color-blue-500); }
-  .bg-gray-100 { background-color: var(--color-gray-100); }
-  .bg-white { background-color: var(--color-white); }
-  .p-2 { padding: calc(var(--spacing) * 2); }
-  .p-3 { padding: calc(var(--spacing) * 3); }
-  .p-4 { padding: calc(var(--spacing) * 4); }
-  .p-6 { padding: calc(var(--spacing) * 6); }
-  .px-2 { padding-inline: calc(var(--spacing) * 2); }
-  .px-3 { padding-inline: calc(var(--spacing) * 3); }
-  .px-4 { padding-inline: calc(var(--spacing) * 4); }
-  .py-1 { padding-block: calc(var(--spacing) * 1); }
-  .py-2 { padding-block: calc(var(--spacing) * 2); }
-  .pt-3 { padding-top: calc(var(--spacing) * 3); }
-  .text-center { text-align: center; }
-  .text-base { font-size: var(--text-base); line-height: var(--tw-leading, var(--text-base--line-height)); }
-  .text-lg { font-size: var(--text-lg); line-height: var(--tw-leading, var(--text-lg--line-height)); }
-  .text-sm { font-size: var(--text-sm); line-height: var(--tw-leading, var(--text-sm--line-height)); }
-  .text-xs { font-size: var(--text-xs); line-height: var(--tw-leading, var(--text-xs--line-height)); }
-  .font-medium { --tw-font-weight: var(--font-weight-medium); font-weight: var(--font-weight-medium); }
-  .font-semibold { --tw-font-weight: var(--font-weight-semibold); font-weight: var(--font-weight-semibold); }
-  .text-gray-400 { color: var(--color-gray-400); }
-  .text-gray-600 { color: var(--color-gray-600); }
-  .text-gray-700 { color: var(--color-gray-700); }
-  .text-white { color: var(--color-white); }
-  .shadow-sm { --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)); box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow); }
-  .transition-transform { transition-property: transform, translate, scale, rotate; transition-timing-function: var(--tw-ease, var(--default-transition-timing-function)); transition-duration: var(--tw-duration, var(--default-transition-duration)); }
-  .duration-200 { --tw-duration: 200ms; transition-duration: 200ms; }
-  .hover\:bg-blue-600 {
-  &:hover {
-  @media (hover: hover) {
-  background-color: var(--color-blue-600);
-}
-}
-}
-  .hover\:bg-gray-100 {
-  &:hover {
-  @media (hover: hover) {
-  background-color: var(--color-gray-100);
-}
-}
-}
-  .hover\:bg-gray-200 {
-  &:hover {
-  @media (hover: hover) {
-  background-color: var(--color-gray-200);
-}
-}
-}
-  .focus\:ring-2 {
-  &:focus { --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor); box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow); }
-}
-  .focus\:ring-blue-500 {
-  &:focus { --tw-ring-color: var(--color-blue-500); }
-}
-  .focus\:outline-none {
-  &:focus { --tw-outline-style: none; outline-style: none; }
-}
-}
+                if (dayType === 'paid') paidLeaveDays++;
+                else if (dayType === 'rest') restDays++;
+            }
 
-@property --tw-space-y-reverse { syntax: "*"; inherits: false; initial-value: 0; }
+            var shouldWorkDays = allWeekdays - weekdayPaidLeaves;
+            var shouldWorkHours = shouldWorkDays * 8;
 
-@property --tw-space-x-reverse { syntax: "*"; inherits: false; initial-value: 0; }
+            // 计算实际上班天数
+            var actualWeekdayDays = 0, actualSaturdayDays = 0, actualSundayDays = 0;
+            for (var d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+                var dayOfWeek = d.getDay();
+                var dateStr = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+                var dayType = calendarDataForMonth[dateStr];
+                if (dayType !== 'rest' && dayType !== 'paid') {
+                    if (dayOfWeek >= 1 && dayOfWeek <= 5) actualWeekdayDays++;
+                    else if (dayOfWeek === 6) actualSaturdayDays++;
+                    else if (dayOfWeek === 0) actualSundayDays++;
+                }
+            }
 
-@property --tw-border-style { syntax: "*"; inherits: false; initial-value: solid; }
+            // 计算实际工时
+            var actualSingleHours = Math.max(0, actualWeekdayDays * 8 - singleTimeLeave);
+            var actualOvertime15 = Math.max(0, actualWeekdayDays * 2 - overtime15Leave);
+            var actualSundayHours = Math.max(0, actualSundayDays * 8 - doubleTimeLeave);
+            var actualSaturdayHours = actualSaturdayDays * 10;
+            var actualTotalHours = actualSingleHours + actualOvertime15 + actualSundayHours + actualSaturdayHours;
 
-@property --tw-font-weight { syntax: "*"; inherits: false; }
+            // 计算工作日休息天数和周末上班天数
+            var weekdayRestDays = allWeekdays - actualWeekdayDays - weekdayPaidLeaves;
+            var weekendWorkDays = actualSaturdayDays + actualSundayDays;
 
-@property --tw-shadow { syntax: "*"; inherits: false; initial-value: 0 0 #0000; }
+            // 判断情况类型
+            var caseType = weekdayRestDays > weekendWorkDays ? '情况一' : '情况二';
 
-@property --tw-shadow-color { syntax: "*"; inherits: false; }
+            // 计算工资分配（根据情况类型）
+            var singlePayHours, overtime15PayHours, doublePayHours;
 
-@property --tw-shadow-alpha { syntax: "<percentage>"; inherits: false; initial-value: 100%; }
+            if (caseType === '情况一') {
+                // 情况一：工作日休息天数 > 周末上班天数
+                singlePayHours = Math.max(0, (actualWeekdayDays * 8 + actualSaturdayDays * 8 + actualSundayDays * 8) - singleTimeLeave);
+                overtime15PayHours = Math.max(0, (actualWeekdayDays * 2) - overtime15Leave);
+                doublePayHours = actualSaturdayDays * 2;
+            } else {
+                // 情况二：工作日休息天数 <= 周末上班天数
+                if (actualTotalHours <= shouldWorkHours) {
+                    singlePayHours = actualSingleHours;
+                    overtime15PayHours = actualOvertime15;
+                    doublePayHours = actualSaturdayHours + actualSundayHours;
+                } else {
+                    singlePayHours = Math.min(shouldWorkHours, actualTotalHours);
+                    var remaining = actualTotalHours - singlePayHours;
+                    overtime15PayHours = Math.min(remaining, actualOvertime15);
+                    doublePayHours = remaining - overtime15PayHours;
+                }
+            }
 
-@property --tw-inset-shadow { syntax: "*"; inherits: false; initial-value: 0 0 #0000; }
+            // 计算各项工资
+            var basicSalary = singlePayHours * hourlyRate;
+            var overtime15Salary = overtime15PayHours * hourlyRate * 1.5;
+            var doubleOvertimeSalary = doublePayHours * hourlyRate * 2;
+            var totalOvertimeSalary = overtime15Salary + doubleOvertimeSalary;
+            var performanceBonus = actualTotalHours * performanceRate;
+            var efficiencyBonus = Math.ceil(efficiencyFactor * actualTotalHours * 25 * 10) / 10;
+            var nightShiftFee = (actualWeekdayDays + actualSaturdayDays) * weekdayNightFee + actualSundayDays * weekendNightFee;
+            var paidLeaveSalary = paidLeaveDays * paidLeaveRate;
+            var totalSalary = basicSalary + totalOvertimeSalary + performanceBonus + efficiencyBonus + nightShiftFee + paidLeaveSalary;
 
-@property --tw-inset-shadow-color { syntax: "*"; inherits: false; }
+            return {
+                year: year,
+                month: month,
+                basicSalary: basicSalary,
+                overtimeSalary: totalOvertimeSalary,
+                performanceBonus: performanceBonus,
+                efficiencyBonus: efficiencyBonus,
+                nightShiftFee: nightShiftFee,
+                paidLeaveSalary: paidLeaveSalary,
+                totalSalary: totalSalary,
+                shouldWorkDays: shouldWorkDays,
+                shouldWorkHours: shouldWorkHours,
+                actualTotalHours: actualTotalHours,
+                actualSingleHours: actualSingleHours,
+                actualOvertime15: actualOvertime15,
+                actualSundayHours: actualSundayHours,
+                actualSaturdayHours: actualSaturdayHours,
+                restDays: restDays,
+                paidLeaveDays: paidLeaveDays,
+                weekdayRestDays: weekdayRestDays,
+                weekendWorkDays: weekendWorkDays,
+                caseType: caseType,
+                singlePayHours: singlePayHours,
+                overtime15PayHours: overtime15PayHours,
+                doublePayHours: doublePayHours
+            };
+        }
 
-@property --tw-inset-shadow-alpha { syntax: "<percentage>"; inherits: false; initial-value: 100%; }
+        function calculateSalary() {
+            var year = parseInt(document.getElementById('year').value);
+            var month = parseInt(document.getElementById('month').value);
+            var monthData = getOrCreateCalendarData(year, month);
+            var result = computeSalaryForMonth(year, month, monthData);
 
-@property --tw-ring-color { syntax: "*"; inherits: false; }
+            // 更新显示结果
+            updateDisplayResults(result);
+        }
 
-@property --tw-ring-shadow { syntax: "*"; inherits: false; initial-value: 0 0 #0000; }
+        // 更新显示结果
+        function updateDisplayResults(result) {
+            var displayMap = {
+                'basicSalary': result.basicSalary.toFixed(2) + '元',
+                'overtimeSalary': result.overtimeSalary.toFixed(2) + '元',
+                'performanceBonus': result.performanceBonus.toFixed(2) + '元',
+                'efficiencyBonus': result.efficiencyBonus.toFixed(2) + '元',
+                'nightShiftFee': result.nightShiftFee.toFixed(2) + '元',
+                'paidLeaveSalary': result.paidLeaveSalary.toFixed(2) + '元',
+                'totalSalary': result.totalSalary.toFixed(2),
+                'yearMonth': result.year + '年' + result.month + '月',
+                'shouldWorkDays': result.shouldWorkDays,
+                'shouldWorkHours': result.shouldWorkHours,
+                'actualTotalHours': result.actualTotalHours,
+                'actualSingleHours': result.actualSingleHours,
+                'actualOvertime15': result.actualOvertime15,
+                'actualSundayHours': result.actualSundayHours,
+                'actualSaturdayHours': result.actualSaturdayHours,
+                'restDaysCount': result.restDays,
+                'paidLeaveCount': result.paidLeaveDays,
+                'weekdayRestDays': result.weekdayRestDays,
+                'weekendWorkDays': result.weekendWorkDays,
+                'caseType': result.caseType
+            };
 
-@property --tw-inset-ring-color { syntax: "*"; inherits: false; }
+            for (var id in displayMap) {
+                var element = document.getElementById(id);
+                if (element) element.textContent = displayMap[id];
+            }
 
-@property --tw-inset-ring-shadow { syntax: "*"; inherits: false; initial-value: 0 0 #0000; }
+            var hourlyRate = parseFloat(document.getElementById('hourlyRate').value) || 0;
+            document.getElementById('singlePayAmount').textContent = 
+                result.singlePayHours.toFixed(2) + '小时 (' + (result.singlePayHours * hourlyRate).toFixed(2) + '元)';
+            document.getElementById('overtime15PayAmount').textContent = 
+                result.overtime15PayHours.toFixed(2) + '小时 (' + (result.overtime15PayHours * hourlyRate * 1.5).toFixed(2) + '元)';
+            document.getElementById('doublePayAmount').textContent = 
+                result.doublePayHours.toFixed(2) + '小时 (' + (result.doublePayHours * hourlyRate * 2).toFixed(2) + '元)';
+            document.getElementById('breakdownTotal').textContent = result.totalSalary.toFixed(2) + '元';
+        }
 
-@property --tw-ring-inset { syntax: "*"; inherits: false; }
+        // 批量计算函数
+        function calculateMultipleMonths() {
+            var startYear = parseInt(document.getElementById('startYear').value);
+            var startMonth = parseInt(document.getElementById('startMonth').value);
+            var endYear = parseInt(document.getElementById('endYear').value);
+            var endMonth = parseInt(document.getElementById('endMonth').value);
 
-@property --tw-ring-offset-width { syntax: "<length>"; inherits: false; initial-value: 0px; }
+            var months = [];
+            var y = startYear, m = startMonth;
+            while (y < endYear || (y === endYear && m <= endMonth)) {
+                months.push({ year: y, month: m });
+                m++;
+                if (m > 12) { m = 1; y++; }
+            }
 
-@property --tw-ring-offset-color { syntax: "*"; inherits: false; initial-value: #fff; }
+            var tbody = document.getElementById('batchTableBody');
+            tbody.innerHTML = '';
 
-@property --tw-ring-offset-shadow { syntax: "*"; inherits: false; initial-value: 0 0 #0000; }
+            months.forEach(function(item) {
+                var monthData = getOrCreateCalendarData(item.year, item.month);
+                var res = computeSalaryForMonth(item.year, item.month, monthData);
 
-@property --tw-duration { syntax: "*"; inherits: false; }
+                var row = tbody.insertRow();
+                row.innerHTML = `
+                    <td>${res.year}年${res.month}月</td>
+                    <td>${res.basicSalary.toFixed(2)}</td>
+                    <td>${res.overtimeSalary.toFixed(2)}</td>
+                    <td>${res.performanceBonus.toFixed(2)}</td>
+                    <td>${res.efficiencyBonus.toFixed(2)}</td>
+                    <td>${res.nightShiftFee.toFixed(2)}</td>
+                    <td>${res.paidLeaveSalary.toFixed(2)}</td>
+                    <td><strong>${res.totalSalary.toFixed(2)}</strong></td>
+                `;
+            });
 
-@layer properties {
-  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
-  *, ::before, ::after, ::backdrop { --tw-space-y-reverse: 0; --tw-space-x-reverse: 0; --tw-border-style: solid; --tw-font-weight: initial; --tw-shadow: 0 0 #0000; --tw-shadow-color: initial; --tw-shadow-alpha: 100%; --tw-inset-shadow: 0 0 #0000; --tw-inset-shadow-color: initial; --tw-inset-shadow-alpha: 100%; --tw-ring-color: initial; --tw-ring-shadow: 0 0 #0000; --tw-inset-ring-color: initial; --tw-inset-ring-shadow: 0 0 #0000; --tw-ring-inset: initial; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-offset-shadow: 0 0 #0000; --tw-duration: initial; }
-}
-}
-------MultipartBoundary--NYrYzxMDoUZyEmY52Y7l1WWwPdiY43cGwwtFab52Es----
-Content-Type: text/css
-Content-Transfer-Encoding: binary
-Content-Location: cid:css-c93cd17e-0c91-4f1d-9a29-913d9806bffb@mhtml.blink
+            document.getElementById('batchResults').style.display = 'block';
+        }
 
-@charset "utf-8";
+        function exportBatchToCSV() {
+            var table = document.getElementById('batchTable');
+            var rows = [];
+            for (var i = 0; i < table.rows.length; i++) {
+                var row = [], cols = table.rows[i].cells;
+                for (var j = 0; j < cols.length; j++) {
+                    var data = cols[j].innerText.replace(/"/g, '""');
+                    row.push('"' + data + '"');
+                }
+                rows.push(row.join(','));
+            }
+            var csv = rows.join('\n');
+            var csvContent = '\uFEFF' + csv;
+            var blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = '多月工资汇总.csv';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        function showTab(tabName) {
+            var contents = document.querySelectorAll('.tab-content');
+            var tabs = document.querySelectorAll('.tab');
+            
+            contents.forEach(c => c.classList.remove('active'));
+            tabs.forEach(t => t.classList.remove('active'));
+            
+            var targetContent = document.getElementById(tabName);
+            if (targetContent) targetContent.classList.add('active');
+            if (event && event.target) event.target.classList.add('active');
+        }
+        
+        // 折叠面板功能
+        var coll = document.getElementsByClassName("collapsible");
+        for (var i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content) content.classList.toggle("show");
+            });
+        }
+        
+        // 工作状态导入导出
+        function exportWorkStatus() {
+            var dataStr = JSON.stringify(calendarData, null, 2);
+            var dataBlob = new Blob([dataStr], { type: 'application/json;charset=utf-8' });
+            var url = URL.createObjectURL(dataBlob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = 'work_status_' + getCurrentMonthKey().replace('-', '_') + '.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
 
-body { background-color: rgb(245, 245, 245); margin: 0px; padding: 0px; }
+        function importWorkStatus(event) {
+            var file = event.target.files[0];
+            if (!file) return;
 
-.calendar-day { min-height: 40px; position: relative; cursor: pointer; transition: 0.2s; }
-
-.calendar-day:hover { background-color: rgb(224, 224, 224); }
-
-.calendar-day.rest-day { background-color: rgb(244, 67, 54); color: white; }
-
-.calendar-day.paid-leave { background-color: rgb(76, 175, 80); color: white; }
-
-.calendar-day.weekend { background-color: rgb(158, 158, 158); color: white; }
-
-.calendar-day.selected { border: 2px solid rgb(33, 150, 243); }
-
-.slider-container { margin: 8px 0px; }
-
-.slider { width: 100%; height: 6px; border-radius: 3px; background: rgb(221, 221, 221); outline: none; appearance: none; }
-
-.slider::-webkit-slider-thumb { appearance: none; width: 20px; height: 20px; border-radius: 50%; background: rgb(33, 150, 243); cursor: pointer; }
-
-.salary-item { padding: 8px 12px; margin: 4px 0px; background-color: white; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; }
-
-.salary-total { font-size: 1.2em; font-weight: bold; color: rgb(33, 150, 243); padding: 12px; background-color: rgb(227, 242, 253); border-radius: 6px; margin-top: 8px; }
-
-.work-hours-chart { display: flex; height: 120px; align-items: flex-end; justify-content: space-around; margin: 16px 0px; padding: 8px; background-color: white; border-radius: 6px; }
-
-.chart-bar { width: 60px; background-color: rgb(33, 150, 243); border-radius: 4px 4px 0px 0px; position: relative; transition: height 0.3s; }
-
-.chart-label { position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: 12px; white-space: nowrap; }
-
-.chart-value { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); font-size: 12px; font-weight: bold; }
-
-.settings-menu { max-height: 0px; overflow: hidden; transition: max-height 0.3s ease-out, opacity 0.3s ease-out; opacity: 0; }
-
-.settings-menu.show { max-height: 500px; opacity: 1; transition: max-height 0.3s ease-in, opacity 0.3s ease-in; }
-
-.settings-icon-rotate { transform: rotate(180deg); }
-
-.settings-button { transition: background-color 0.2s; }
-
-.settings-button:hover { background-color: rgb(248, 249, 250); }
-
-.settings-button:active { background-color: rgb(233, 236, 239); }
-------MultipartBoundary--NYrYzxMDoUZyEmY52Y7l1WWwPdiY43cGwwtFab52Es------
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    var importedData = JSON.parse(e.target.result);
+                    for (var key in importedData) {
+                        if (importedData.hasOwnProperty(key)) {
+                            calendarData[key] = importedData[key];
+                        }
+                    }
+                    alert('工作状态导入成功！');
+                    updateCalendar();
+                    calculateSalary();
+                } catch (err) {
+                    alert('导入失败：文件格式不正确。\n请确保是有效的 JSON 文件。');
+                }
+            };
+            reader.readAsText(file);
+            event.target.value = '';
+        }
+        
+        window.onload = function() {
+            initCalendar();
+        };
+    </script>
+</body>
+</html>
