@@ -1,0 +1,514 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://render.lingguang.com/p/lingguang/flashapp-fac20758eeda4332-25/index.html
+Subject: =?utf-8?Q?=E5=B7=A5=E8=B5=84=E8=AE=A1=E7=AE=97=E5=99=A8?=
+Date: Wed, 26 Nov 2025 07:43:53 +0800
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--NYrYzxMDoUZyEmY52Y7l1WWwPdiY43cGwwtFab52Es----"
+
+
+------MultipartBoundary--NYrYzxMDoUZyEmY52Y7l1WWwPdiY43cGwwtFab52Es----
+Content-Type: text/html
+Content-ID: <frame-74E94204A9B1B76937875541307397E2@mhtml.blink>
+Content-Transfer-Encoding: binary
+Content-Location: https://render.lingguang.com/p/lingguang/flashapp-fac20758eeda4332-25/index.html
+
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" type="text/css" href="cid:css-c93cd17e-0c91-4f1d-9a29-913d9806bffb@mhtml.blink" /><link rel="stylesheet" type="text/css" href="cid:css-a7596518-7e3f-439d-84ef-236ff7c032e7@mhtml.blink" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工资计算器</title>
+    
+    
+    
+    <link href="https://gw.alipayobjects.com/render/p/yuyan/180023180003946312/material-icons.css" rel="stylesheet">
+    
+</head>
+<body>
+    <div id="container" class="container mx-auto p-4 max-w-md">
+        <!-- 头部月份导航 -->
+        <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
+            <div class="flex justify-between items-center">
+                <button id="prevMonth" class="p-2 rounded-full hover:bg-gray-100" data-testid="prev-month">
+                    <span class="material-icons">chevron_left</span>
+                </button>
+                <h2 id="currentMonth" class="text-lg font-semibold">2025年11月</h2>
+                <button id="nextMonth" class="p-2 rounded-full hover:bg-gray-100" data-testid="next-month">
+                    <span class="material-icons">chevron_right</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 日历视图 -->
+        <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
+            <div class="grid grid-cols-7 gap-1 text-center text-xs font-semibold mb-2">
+                <div>日</div>
+                <div>一</div>
+                <div>二</div>
+                <div>三</div>
+                <div>四</div>
+                <div>五</div>
+                <div>六</div>
+            </div>
+            <div id="calendarGrid" class="grid grid-cols-7 gap-1"><div class="calendar-day border rounded p-2 text-center text-gray-400">26</div><div class="calendar-day border rounded p-2 text-center text-gray-400">27</div><div class="calendar-day border rounded p-2 text-center text-gray-400">28</div><div class="calendar-day border rounded p-2 text-center text-gray-400">29</div><div class="calendar-day border rounded p-2 text-center text-gray-400">30</div><div class="calendar-day border rounded p-2 text-center text-gray-400">31</div><div class="calendar-day border rounded p-2 text-center weekend">1</div><div class="calendar-day border rounded p-2 text-center rest-day">2</div><div class="calendar-day border rounded p-2 text-center">3</div><div class="calendar-day border rounded p-2 text-center">4</div><div class="calendar-day border rounded p-2 text-center">5</div><div class="calendar-day border rounded p-2 text-center">6</div><div class="calendar-day border rounded p-2 text-center">7</div><div class="calendar-day border rounded p-2 text-center weekend">8</div><div class="calendar-day border rounded p-2 text-center weekend">9</div><div class="calendar-day border rounded p-2 text-center">10</div><div class="calendar-day border rounded p-2 text-center">11</div><div class="calendar-day border rounded p-2 text-center">12</div><div class="calendar-day border rounded p-2 text-center">13</div><div class="calendar-day border rounded p-2 text-center">14</div><div class="calendar-day border rounded p-2 text-center weekend">15</div><div class="calendar-day border rounded p-2 text-center rest-day">16</div><div class="calendar-day border rounded p-2 text-center">17</div><div class="calendar-day border rounded p-2 text-center">18</div><div class="calendar-day border rounded p-2 text-center">19</div><div class="calendar-day border rounded p-2 text-center">20</div><div class="calendar-day border rounded p-2 text-center">21</div><div class="calendar-day border rounded p-2 text-center weekend">22</div><div class="calendar-day border rounded p-2 text-center weekend">23</div><div class="calendar-day border rounded p-2 text-center">24</div><div class="calendar-day border rounded p-2 text-center">25</div><div class="calendar-day border rounded p-2 text-center">26</div><div class="calendar-day border rounded p-2 text-center">27</div><div class="calendar-day border rounded p-2 text-center">28</div><div class="calendar-day border rounded p-2 text-center weekend">29</div><div class="calendar-day border rounded p-2 text-center rest-day">30</div><div class="calendar-day border rounded p-2 text-center text-gray-400">1</div><div class="calendar-day border rounded p-2 text-center text-gray-400">2</div><div class="calendar-day border rounded p-2 text-center text-gray-400">3</div><div class="calendar-day border rounded p-2 text-center text-gray-400">4</div><div class="calendar-day border rounded p-2 text-center text-gray-400">5</div><div class="calendar-day border rounded p-2 text-center text-gray-400">6</div></div>
+        </div>
+
+        <!-- 参数设置按钮 -->
+        <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
+            <button id="settingsToggle" class="settings-button w-full flex justify-between items-center p-3 rounded-lg" data-testid="settings-toggle">
+                <div class="flex items-center">
+                    <span class="material-icons mr-2">settings</span>
+                    <span class="text-base font-semibold">工资参数设置</span>
+                </div>
+                <span id="settingsIcon" class="material-icons transition-transform duration-200 settings-icon-rotate">expand_more</span>
+            </button>
+            
+            <!-- 参数设置二级菜单 -->
+            <div id="settingsMenu" class="settings-menu show">
+                <div class="pt-3 space-y-3">
+                    <div class="slider-container">
+                        <label class="text-sm text-gray-600">时薪: <span id="hourlyRateValue">10.4</span>元</label>
+                        <input type="number" id="hourlyRate" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" min="1" max="200" step="0.1" value="10.4" data-testid="hourly-rate-input">
+                    </div>
+                    
+                    <div class="slider-container">
+                        <label class="text-sm text-gray-600">绩效费率: <span id="performanceRateValue">3.2</span>元/小时</label>
+                        <input type="number" id="performanceRate" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" min="0" max="50" step="0.1" value="3.2" data-testid="performance-rate-input">
+                    </div>
+                    
+                    <div class="slider-container">
+                        <label class="text-sm text-gray-600">效率系数: <span id="efficiencyFactorValue">0.504</span></label>
+                        <div class="flex space-x-2">
+                            <input type="range" id="efficiencyFactorSlider" class="slider flex-1" min="0.1" max="1" step="0.001" value="0.1" data-testid="efficiency-factor-slider">
+                            <input type="number" id="efficiencyFactor" class="w-24 px-2 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" min="0.1" max="1" step="0.001" value="0.1" data-testid="efficiency-factor-input">
+                        </div>
+                    </div>
+                    
+                    <div class="slider-container">
+                        <label class="text-sm text-gray-600">工作日夜班费: <span id="nightShiftWeekdayValue">30</span>元</label>
+                        <input type="number" id="nightShiftWeekday" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" min="0" max="100" step="1" value="30" data-testid="night-shift-weekday-input">
+                    </div>
+                    
+                    <div class="slider-container">
+                        <label class="text-sm text-gray-600">周末夜班费: <span id="nightShiftWeekendValue">10</span>元</label>
+                        <input type="number" id="nightShiftWeekend" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" min="0" max="150" step="1" value="10" data-testid="night-shift-weekend-input">
+                    </div>
+                    
+                    </div>
+            </div>
+        </div>
+
+        <!-- 请假功能按钮 -->
+        <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
+            <button id="leaveToggle" class="settings-button w-full flex justify-between items-center p-3 rounded-lg" data-testid="leave-toggle">
+                <div class="flex items-center">
+                    <span class="material-icons mr-2">event_busy</span>
+                    <span class="text-base font-semibold">请假时间设置</span>
+                </div>
+                <span id="leaveIcon" class="material-icons transition-transform duration-200">expand_more</span>
+            </button>
+            
+            <!-- 请假设置二级菜单 -->
+            <div id="leaveMenu" class="settings-menu">
+                <div class="pt-3 space-y-3">
+                    <div class="slider-container">
+                        <label class="text-sm text-gray-600">单倍请假时间: <span id="singleLeaveValue">0</span>小时</label>
+                        <input type="range" id="singleLeave" class="slider" min="0" max="30" step="0.5" value="0" data-testid="single-leave-slider">
+                    </div>
+                    
+                    <div class="slider-container">
+                        <label class="text-sm text-gray-600">1.5倍请假时间: <span id="onePointFiveLeaveValue">0</span>小时</label>
+                        <input type="range" id="onePointFiveLeave" class="slider" min="0" max="30" step="0.5" value="0" data-testid="onepointfive-leave-slider">
+                    </div>
+                    
+                    <div class="slider-container">
+                        <label class="text-sm text-gray-600">双倍请假时间: <span id="doubleLeaveValue">0</span>小时</label>
+                        <input type="range" id="doubleLeave" class="slider" min="0" max="30" step="0.5" value="0" data-testid="double-leave-slider">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 工时统计图表 -->
+        <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
+            <h3 class="text-base font-semibold mb-3">工时统计</h3>
+            <div class="work-hours-chart">
+                <div class="chart-bar" id="singleBar" style="height: 100px;">
+                    <div class="chart-value" id="singleValue">160.0h</div>
+                    <div class="chart-label">单倍工时</div>
+                </div>
+                <div class="chart-bar" id="onePointFiveBar" style="height: 25px; background-color: rgb(255, 152, 0);">
+                    <div class="chart-value" id="onePointFiveValue">40.0h</div>
+                    <div class="chart-label">1.5倍工时</div>
+                </div>
+                <div class="chart-bar" id="doubleBar" style="height: 41.25px; background-color: rgb(244, 67, 54);">
+                    <div class="chart-value" id="doubleValue">66.0h</div>
+                    <div class="chart-label">双倍工时</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 工资明细 -->
+        <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
+            <h3 class="text-base font-semibold mb-3">工资明细</h3>
+            <div id="salaryDetails">
+                <div class="salary-item">
+                    <span id="totalHoursLabel">2025年11月 总工时</span>
+                    <span id="totalHours">266.0小时</span>
+                </div>
+                <div class="salary-item">
+                    <span>基本工资</span>
+                    <span id="baseSalary">1664.00元</span>
+                </div>
+                <div class="salary-item">
+                    <span>1.5倍加班工资</span>
+                    <span id="overtime1_5Salary">624.00元</span>
+                </div>
+                <div class="salary-item">
+                    <span>双倍加班工资</span>
+                    <span id="overtime2Salary">1372.80元</span>
+                </div>
+                <div class="salary-item">
+                    <span>绩效奖金</span>
+                    <span id="performanceBonus">851.20元</span>
+                </div>
+                <div class="salary-item">
+                    <span>效率奖金</span>
+                    <span id="efficiencyBonus">3351.60元</span>
+                </div>
+                <div class="salary-item">
+                    <span>夜班费</span>
+                    <span id="nightShiftFee">770.00元</span>
+                </div>
+                <div class="salary-item">
+                    <span>有薪假期工资</span>
+                    <span id="paidLeaveSalary">0.00元</span>
+                </div>
+                <div class="salary-total">
+                    <div class="flex justify-between">
+                        <span>总工资</span>
+                        <span id="totalSalary">8633.60元</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <!-- 效率系数输入对话框 -->
+    <div id="efficiencyDialog" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" style="display: none;">
+        <div class="bg-white rounded-lg p-6 max-w-sm w-full mx-4">
+            <h3 class="text-lg font-semibold mb-4">设置效率系数</h3>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 mb-2">效率系数 (0.100 - 1.000)</label>
+                <input type="number" id="efficiencyDialogInput" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" min="0.1" max="1" step="0.001" value="0.1" data-testid="efficiency-dialog-input">
+            </div>
+            <div class="flex justify-end space-x-3">
+                <button id="efficiencyDialogCancel" class="px-4 py-2 text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200" data-testid="efficiency-dialog-cancel">取消</button>
+                <button id="efficiencyDialogConfirm" class="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600" data-testid="efficiency-dialog-confirm">确定</button>
+            </div>
+        </div>
+    </div>
+
+    
+
+</body></html>
+------MultipartBoundary--NYrYzxMDoUZyEmY52Y7l1WWwPdiY43cGwwtFab52Es----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: https://gw.alipayobjects.com/render/p/yuyan/180023180003946312/material-icons.css
+
+@charset "utf-8";
+
+@font-face { font-family: "Material Icons"; font-style: normal; font-weight: 400; font-display: block; src: url("./material-icons.woff2") format("woff2"), url("./material-icons.woff") format("woff"); }
+
+.material-icons { font-family: "Material Icons"; font-weight: normal; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; overflow-wrap: normal; direction: ltr; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; font-feature-settings: "liga"; }
+
+@font-face { font-family: "Material Icons Outlined"; font-style: normal; font-weight: 400; font-display: block; src: url("./material-icons-outlined.woff2") format("woff2"), url("./material-icons-outlined.woff") format("woff"); }
+
+.material-icons-outlined { font-family: "Material Icons Outlined"; font-weight: normal; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; overflow-wrap: normal; direction: ltr; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; font-feature-settings: "liga"; }
+
+@font-face { font-family: "Material Icons Round"; font-style: normal; font-weight: 400; font-display: block; src: url("./material-icons-round.woff2") format("woff2"), url("./material-icons-round.woff") format("woff"); }
+
+.material-icons-round { font-family: "Material Icons Round"; font-weight: normal; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; overflow-wrap: normal; direction: ltr; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; font-feature-settings: "liga"; }
+
+@font-face { font-family: "Material Icons Sharp"; font-style: normal; font-weight: 400; font-display: block; src: url("./material-icons-sharp.woff2") format("woff2"), url("./material-icons-sharp.woff") format("woff"); }
+
+.material-icons-sharp { font-family: "Material Icons Sharp"; font-weight: normal; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; overflow-wrap: normal; direction: ltr; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; font-feature-settings: "liga"; }
+
+@font-face { font-family: "Material Icons Two Tone"; font-style: normal; font-weight: 400; font-display: block; src: url("./material-icons-two-tone.woff2") format("woff2"), url("./material-icons-two-tone.woff") format("woff"); }
+
+.material-icons-two-tone { font-family: "Material Icons Two Tone"; font-weight: normal; font-style: normal; font-size: 24px; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; overflow-wrap: normal; direction: ltr; -webkit-font-smoothing: antialiased; text-rendering: optimizelegibility; font-feature-settings: "liga"; }
+------MultipartBoundary--NYrYzxMDoUZyEmY52Y7l1WWwPdiY43cGwwtFab52Es----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: cid:css-a7596518-7e3f-439d-84ef-236ff7c032e7@mhtml.blink
+
+@charset "utf-8";
+
+@layer properties;
+
+@layer theme, base, components, utilities;
+
+@layer theme {
+  :root, :host { --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji'; --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace; --color-blue-500: oklch(62.3% 0.214 259.815); --color-blue-600: oklch(54.6% 0.245 262.881); --color-gray-100: oklch(96.7% 0.003 264.542); --color-gray-200: oklch(92.8% 0.006 264.531); --color-gray-300: oklch(87.2% 0.01 258.338); --color-gray-400: oklch(70.7% 0.022 261.325); --color-gray-600: oklch(44.6% 0.03 256.802); --color-gray-700: oklch(37.3% 0.034 259.733); --color-black: #000; --color-white: #fff; --spacing: 0.25rem; --container-sm: 24rem; --container-md: 28rem; --text-xs: 0.75rem; --text-xs--line-height: calc(1 / 0.75); --text-sm: 0.875rem; --text-sm--line-height: calc(1.25 / 0.875); --text-base: 1rem; --text-base--line-height: calc(1.5 / 1); --text-lg: 1.125rem; --text-lg--line-height: calc(1.75 / 1.125); --font-weight-medium: 500; --font-weight-semibold: 600; --radius-md: 0.375rem; --radius-lg: 0.5rem; --default-transition-duration: 150ms; --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); --default-font-family: var(--font-sans); --default-mono-font-family: var(--font-mono); }
+}
+
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button { box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid; }
+  html, :host { line-height: 1.5; text-size-adjust: 100%; tab-size: 4; font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'); font-feature-settings: var(--default-font-feature-settings, normal); font-variation-settings: var(--default-font-variation-settings, normal); -webkit-tap-highlight-color: transparent; }
+  hr { height: 0px; color: inherit; border-top-width: 1px; }
+  abbr:where([title]) { text-decoration: underline dotted; }
+  h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; }
+  a { color: inherit; text-decoration: inherit; }
+  b, strong { font-weight: bolder; }
+  code, kbd, samp, pre { font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace); font-feature-settings: var(--default-mono-font-feature-settings, normal); font-variation-settings: var(--default-mono-font-variation-settings, normal); font-size: 1em; }
+  small { font-size: 80%; }
+  sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+  sub { bottom: -0.25em; }
+  sup { top: -0.5em; }
+  table { text-indent: 0px; border-color: inherit; border-collapse: collapse; }
+  progress { vertical-align: baseline; }
+  summary { display: list-item; }
+  ol, ul, menu { list-style: none; }
+  img, svg, video, canvas, audio, iframe, embed, object { display: block; vertical-align: middle; }
+  img, video { max-width: 100%; height: auto; }
+  button, input, select, optgroup, textarea, ::file-selector-button { font: inherit; letter-spacing: inherit; color: inherit; border-radius: 0px; background-color: transparent; opacity: 1; }
+  :where(select:is([multiple], [size])) optgroup { font-weight: bolder; }
+  :where(select:is([multiple], [size])) optgroup option { padding-inline-start: 20px; }
+  ::file-selector-button { margin-inline-end: 4px; }
+  ::placeholder { opacity: 1; }
+  @supports (not (-webkit-appearance: -apple-pay-button)) or (contain-intrinsic-size: 1px) {
+  ::placeholder {
+  color: currentcolor;
+  @supports (color: color-mix(in lab, red, red)) {
+  color: color-mix(in oklab, currentcolor, transparent);
+}
+}
+}
+  textarea { resize: vertical; }
+  ::-webkit-search-decoration { appearance: none; }
+  ::-webkit-date-and-time-value { min-height: 1lh; text-align: inherit; }
+  ::-webkit-datetime-edit { display: inline-flex; }
+  ::-webkit-datetime-edit-fields-wrapper { padding: 0px; }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field { padding-block: 0px; }
+  ::-webkit-calendar-picker-indicator { line-height: 1; }
+  button, input:where([type="button"], [type="reset"], [type="submit"]), ::file-selector-button { appearance: button; }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button { height: auto; }
+  [hidden]:where(:not([hidden="until-found"])) { display: none !important; }
+}
+
+@layer utilities {
+  .fixed { position: fixed; }
+  .inset-0 { inset: calc(var(--spacing) * 0); }
+  .z-50 { z-index: 50; }
+  .container {
+  width: 100%;
+  @media (width >= 40rem) {
+  max-width: 40rem;
+}
+  @media (width >= 48rem) {
+  max-width: 48rem;
+}
+  @media (width >= 64rem) {
+  max-width: 64rem;
+}
+  @media (width >= 80rem) {
+  max-width: 80rem;
+}
+  @media (width >= 96rem) {
+  max-width: 96rem;
+}
+}
+  .mx-4 { margin-inline: calc(var(--spacing) * 4); }
+  .mx-auto { margin-inline: auto; }
+  .mr-2 { margin-right: calc(var(--spacing) * 2); }
+  .mb-2 { margin-bottom: calc(var(--spacing) * 2); }
+  .mb-3 { margin-bottom: calc(var(--spacing) * 3); }
+  .mb-4 { margin-bottom: calc(var(--spacing) * 4); }
+  .block { display: block; }
+  .flex { display: flex; }
+  .grid { display: grid; }
+  .w-24 { width: calc(var(--spacing) * 24); }
+  .w-full { width: 100%; }
+  .max-w-md { max-width: var(--container-md); }
+  .max-w-sm { max-width: var(--container-sm); }
+  .flex-1 { flex: 1 1 0%; }
+  .grid-cols-7 { grid-template-columns: repeat(7, minmax(0px, 1fr)); }
+  .items-center { align-items: center; }
+  .justify-between { justify-content: space-between; }
+  .justify-center { justify-content: center; }
+  .justify-end { justify-content: flex-end; }
+  .gap-1 { gap: calc(var(--spacing) * 1); }
+  .space-y-3 {
+  :where(& > :not(:last-child)) { --tw-space-y-reverse: 0; margin-block-start: calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse)); margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse))); }
+}
+  .space-x-2 {
+  :where(& > :not(:last-child)) { --tw-space-x-reverse: 0; margin-inline-start: calc(calc(var(--spacing) * 2) * var(--tw-space-x-reverse)); margin-inline-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-x-reverse))); }
+}
+  .space-x-3 {
+  :where(& > :not(:last-child)) { --tw-space-x-reverse: 0; margin-inline-start: calc(calc(var(--spacing) * 3) * var(--tw-space-x-reverse)); margin-inline-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-x-reverse))); }
+}
+  .rounded { border-radius: 0.25rem; }
+  .rounded-full { border-radius: calc(infinity * 1px); }
+  .rounded-lg { border-radius: var(--radius-lg); }
+  .rounded-md { border-radius: var(--radius-md); }
+  .border { border-style: var(--tw-border-style); border-width: 1px; }
+  .border-gray-300 { border-color: var(--color-gray-300); }
+  .bg-black { background-color: var(--color-black); }
+  .bg-blue-500 { background-color: var(--color-blue-500); }
+  .bg-gray-100 { background-color: var(--color-gray-100); }
+  .bg-white { background-color: var(--color-white); }
+  .p-2 { padding: calc(var(--spacing) * 2); }
+  .p-3 { padding: calc(var(--spacing) * 3); }
+  .p-4 { padding: calc(var(--spacing) * 4); }
+  .p-6 { padding: calc(var(--spacing) * 6); }
+  .px-2 { padding-inline: calc(var(--spacing) * 2); }
+  .px-3 { padding-inline: calc(var(--spacing) * 3); }
+  .px-4 { padding-inline: calc(var(--spacing) * 4); }
+  .py-1 { padding-block: calc(var(--spacing) * 1); }
+  .py-2 { padding-block: calc(var(--spacing) * 2); }
+  .pt-3 { padding-top: calc(var(--spacing) * 3); }
+  .text-center { text-align: center; }
+  .text-base { font-size: var(--text-base); line-height: var(--tw-leading, var(--text-base--line-height)); }
+  .text-lg { font-size: var(--text-lg); line-height: var(--tw-leading, var(--text-lg--line-height)); }
+  .text-sm { font-size: var(--text-sm); line-height: var(--tw-leading, var(--text-sm--line-height)); }
+  .text-xs { font-size: var(--text-xs); line-height: var(--tw-leading, var(--text-xs--line-height)); }
+  .font-medium { --tw-font-weight: var(--font-weight-medium); font-weight: var(--font-weight-medium); }
+  .font-semibold { --tw-font-weight: var(--font-weight-semibold); font-weight: var(--font-weight-semibold); }
+  .text-gray-400 { color: var(--color-gray-400); }
+  .text-gray-600 { color: var(--color-gray-600); }
+  .text-gray-700 { color: var(--color-gray-700); }
+  .text-white { color: var(--color-white); }
+  .shadow-sm { --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)); box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow); }
+  .transition-transform { transition-property: transform, translate, scale, rotate; transition-timing-function: var(--tw-ease, var(--default-transition-timing-function)); transition-duration: var(--tw-duration, var(--default-transition-duration)); }
+  .duration-200 { --tw-duration: 200ms; transition-duration: 200ms; }
+  .hover\:bg-blue-600 {
+  &:hover {
+  @media (hover: hover) {
+  background-color: var(--color-blue-600);
+}
+}
+}
+  .hover\:bg-gray-100 {
+  &:hover {
+  @media (hover: hover) {
+  background-color: var(--color-gray-100);
+}
+}
+}
+  .hover\:bg-gray-200 {
+  &:hover {
+  @media (hover: hover) {
+  background-color: var(--color-gray-200);
+}
+}
+}
+  .focus\:ring-2 {
+  &:focus { --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor); box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow); }
+}
+  .focus\:ring-blue-500 {
+  &:focus { --tw-ring-color: var(--color-blue-500); }
+}
+  .focus\:outline-none {
+  &:focus { --tw-outline-style: none; outline-style: none; }
+}
+}
+
+@property --tw-space-y-reverse { syntax: "*"; inherits: false; initial-value: 0; }
+
+@property --tw-space-x-reverse { syntax: "*"; inherits: false; initial-value: 0; }
+
+@property --tw-border-style { syntax: "*"; inherits: false; initial-value: solid; }
+
+@property --tw-font-weight { syntax: "*"; inherits: false; }
+
+@property --tw-shadow { syntax: "*"; inherits: false; initial-value: 0 0 #0000; }
+
+@property --tw-shadow-color { syntax: "*"; inherits: false; }
+
+@property --tw-shadow-alpha { syntax: "<percentage>"; inherits: false; initial-value: 100%; }
+
+@property --tw-inset-shadow { syntax: "*"; inherits: false; initial-value: 0 0 #0000; }
+
+@property --tw-inset-shadow-color { syntax: "*"; inherits: false; }
+
+@property --tw-inset-shadow-alpha { syntax: "<percentage>"; inherits: false; initial-value: 100%; }
+
+@property --tw-ring-color { syntax: "*"; inherits: false; }
+
+@property --tw-ring-shadow { syntax: "*"; inherits: false; initial-value: 0 0 #0000; }
+
+@property --tw-inset-ring-color { syntax: "*"; inherits: false; }
+
+@property --tw-inset-ring-shadow { syntax: "*"; inherits: false; initial-value: 0 0 #0000; }
+
+@property --tw-ring-inset { syntax: "*"; inherits: false; }
+
+@property --tw-ring-offset-width { syntax: "<length>"; inherits: false; initial-value: 0px; }
+
+@property --tw-ring-offset-color { syntax: "*"; inherits: false; initial-value: #fff; }
+
+@property --tw-ring-offset-shadow { syntax: "*"; inherits: false; initial-value: 0 0 #0000; }
+
+@property --tw-duration { syntax: "*"; inherits: false; }
+
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+  *, ::before, ::after, ::backdrop { --tw-space-y-reverse: 0; --tw-space-x-reverse: 0; --tw-border-style: solid; --tw-font-weight: initial; --tw-shadow: 0 0 #0000; --tw-shadow-color: initial; --tw-shadow-alpha: 100%; --tw-inset-shadow: 0 0 #0000; --tw-inset-shadow-color: initial; --tw-inset-shadow-alpha: 100%; --tw-ring-color: initial; --tw-ring-shadow: 0 0 #0000; --tw-inset-ring-color: initial; --tw-inset-ring-shadow: 0 0 #0000; --tw-ring-inset: initial; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-offset-shadow: 0 0 #0000; --tw-duration: initial; }
+}
+}
+------MultipartBoundary--NYrYzxMDoUZyEmY52Y7l1WWwPdiY43cGwwtFab52Es----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: cid:css-c93cd17e-0c91-4f1d-9a29-913d9806bffb@mhtml.blink
+
+@charset "utf-8";
+
+body { background-color: rgb(245, 245, 245); margin: 0px; padding: 0px; }
+
+.calendar-day { min-height: 40px; position: relative; cursor: pointer; transition: 0.2s; }
+
+.calendar-day:hover { background-color: rgb(224, 224, 224); }
+
+.calendar-day.rest-day { background-color: rgb(244, 67, 54); color: white; }
+
+.calendar-day.paid-leave { background-color: rgb(76, 175, 80); color: white; }
+
+.calendar-day.weekend { background-color: rgb(158, 158, 158); color: white; }
+
+.calendar-day.selected { border: 2px solid rgb(33, 150, 243); }
+
+.slider-container { margin: 8px 0px; }
+
+.slider { width: 100%; height: 6px; border-radius: 3px; background: rgb(221, 221, 221); outline: none; appearance: none; }
+
+.slider::-webkit-slider-thumb { appearance: none; width: 20px; height: 20px; border-radius: 50%; background: rgb(33, 150, 243); cursor: pointer; }
+
+.salary-item { padding: 8px 12px; margin: 4px 0px; background-color: white; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; }
+
+.salary-total { font-size: 1.2em; font-weight: bold; color: rgb(33, 150, 243); padding: 12px; background-color: rgb(227, 242, 253); border-radius: 6px; margin-top: 8px; }
+
+.work-hours-chart { display: flex; height: 120px; align-items: flex-end; justify-content: space-around; margin: 16px 0px; padding: 8px; background-color: white; border-radius: 6px; }
+
+.chart-bar { width: 60px; background-color: rgb(33, 150, 243); border-radius: 4px 4px 0px 0px; position: relative; transition: height 0.3s; }
+
+.chart-label { position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: 12px; white-space: nowrap; }
+
+.chart-value { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); font-size: 12px; font-weight: bold; }
+
+.settings-menu { max-height: 0px; overflow: hidden; transition: max-height 0.3s ease-out, opacity 0.3s ease-out; opacity: 0; }
+
+.settings-menu.show { max-height: 500px; opacity: 1; transition: max-height 0.3s ease-in, opacity 0.3s ease-in; }
+
+.settings-icon-rotate { transform: rotate(180deg); }
+
+.settings-button { transition: background-color 0.2s; }
+
+.settings-button:hover { background-color: rgb(248, 249, 250); }
+
+.settings-button:active { background-color: rgb(233, 236, 239); }
+------MultipartBoundary--NYrYzxMDoUZyEmY52Y7l1WWwPdiY43cGwwtFab52Es------
