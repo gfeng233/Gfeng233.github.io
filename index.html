@@ -355,6 +355,28 @@
                 font-size: 12px;
             }
         }
+        
+        /* 自动关闭通知样式 */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.3s ease-in-out;
+            font-size: 16px;
+        }
+        
+        .notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -595,6 +617,9 @@
             </div>
         </div>
     </div>
+
+    <!-- 自动关闭通知 -->
+    <div id="notification" class="notification">工作状态导入成功！</div>
 
     <script>
         // 存储日历数据（按年月索引）
@@ -1113,7 +1138,10 @@
                             calendarData[key] = importedData[key];
                         }
                     }
-                    alert('工作状态导入成功！');
+                    
+                    // 显示自动关闭的通知
+                    showNotification();
+                    
                     updateCalendar();
                     calculateSalary();
                 } catch (err) {
@@ -1122,6 +1150,25 @@
             };
             reader.readAsText(file);
             event.target.value = '';
+        }
+        
+        // 显示自动关闭通知
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            
+            // 重置动画
+            notification.classList.remove('show');
+            
+            // 强制重排以重新启动动画
+            void notification.offsetWidth;
+            
+            // 显示通知
+            notification.classList.add('show');
+            
+            // 3秒后自动隐藏通知
+            setTimeout(function() {
+                notification.classList.remove('show');
+            }, 3000);
         }
         
         window.onload = function() {
