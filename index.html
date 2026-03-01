@@ -930,16 +930,9 @@
                 doublePayHours = actualSaturdayDays * 2;
             } else {
                 // 情况二：工作日休息天数 <= 周末上班天数
-                if (actualTotalHours <= shouldWorkHours) {
                     singlePayHours = actualSingleHours;
                     overtime15PayHours = actualOvertime15;
                     doublePayHours = actualSaturdayHours + actualSundayHours;
-                } else {
-                    singlePayHours = Math.min(shouldWorkHours, actualTotalHours);
-                    var remaining = actualTotalHours - singlePayHours;
-                    overtime15PayHours = Math.min(remaining, actualOvertime15);
-                    doublePayHours = remaining - overtime15PayHours;
-                }
             }
 
             // 计算各项工资
